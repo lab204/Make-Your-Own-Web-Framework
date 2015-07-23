@@ -1,4 +1,3 @@
-run proc {
-  [200, {'Content-Type' => 'text/html'},
-    ['hello world !']]
-}
+require './config/application'
+
+run Hello::Application.new
