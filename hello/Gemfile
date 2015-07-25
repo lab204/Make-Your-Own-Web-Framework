@@ -1,1 +1,2 @@
-gem 'hamster'
+gem 'hamster', :path => "../hamster"
+
