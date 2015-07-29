@@ -1,6 +1,8 @@
 #coding: utf-8
 require_relative "hamster/version"
 require_relative "hamster/routing"
+require_relative "hamster/util"
+require_relative "hamster/dependencies"
 
 module Hamster
   class Application
