@@ -3,6 +3,7 @@ require_relative "hamster/version"
 require_relative "hamster/routing"
 require_relative "hamster/util"
 require_relative "hamster/dependencies"
+require "erubis"
 
 module Hamster
   class Application
@@ -27,6 +28,13 @@ module Hamster
 
     def env
       @env
+    end
+
+    def render(view_name, locals = {})
+      filename = File.join "app", "views", "#{view_name}.html.erb"
+      template = File.read filename
+      eruby = Erubis::Eruby.new(template)
+      eruby.result locals.merge(:env => env)
     end
   end
 end

@@ -1,5 +1,5 @@
 class HelloController < Hamster::Controller
   def world
-    "123456"
+    render "index"
   end
 end
