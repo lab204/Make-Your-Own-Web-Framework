@@ -4,6 +4,7 @@ require_relative "hamster/routing"
 require_relative "hamster/util"
 require_relative "hamster/dependencies"
 require "erubis"
+require "rack/request"
 
 module Hamster
   class Application
@@ -35,6 +36,14 @@ module Hamster
       template = File.read filename
       eruby = Erubis::Eruby.new(template)
       eruby.result locals.merge(:env => env)
+    end
+
+    def request
+      @request = Rack::Request.new(@env)
+    end
+
+    def params
+      request.params
     end
   end
 end
