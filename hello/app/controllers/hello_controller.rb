@@ -1,5 +1,5 @@
-class HelloController < Hamster::Controller
+class HelloController < ApplicationController
   def world
-    render "index"
+    render "index", :params => params
   end
 end
